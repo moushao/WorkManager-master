@@ -1,6 +1,7 @@
 package com.moushao.workmanager.lib.work;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.work.RxWorker;
@@ -15,6 +16,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class ReportWork extends RxWorker {
     ReportRepository reportRepository;
+    private static String TAG = "ReportWork";
     /**
      * @param appContext   The application {@link Context}
      * @param workerParams Parameters to setup the internal state of this worker
@@ -27,7 +29,8 @@ public class ReportWork extends RxWorker {
     @NonNull
     @Override
     public Single<Result> createWork() {
-        return reportRepository.report().map(workResult -> Result.retry());
+        Log.e(TAG, "start");
+        return reportRepository.report().map(workResult -> Result.success());
     }
 
     @NonNull

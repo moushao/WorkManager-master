@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class WorkManagerController {
     public static void initWork(Context context) {
         // add multi work
-        WorkManager.getInstance(context).enqueueUniquePeriodicWork("report", ExistingPeriodicWorkPolicy.REPLACE, initWorkRequest());
+        WorkManager.getInstance(context).enqueueUniquePeriodicWork("report", ExistingPeriodicWorkPolicy.KEEP, initWorkRequest());
     }
 
     private static PeriodicWorkRequest initWorkRequest() {
