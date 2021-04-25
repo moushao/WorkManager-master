@@ -1,0 +1,3 @@
+include ':workmanager_lib'
+include ':app'
+rootProject.name = "WorkManager-master"
